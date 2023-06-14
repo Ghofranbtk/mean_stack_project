@@ -1,0 +1,185 @@
+<app-header></app-header>
+<div class="page-wrapper">
+
+    <div class="login-page bg-image pt-8 pb-8 pt-md-12 pb-md-12 pt-lg-17 pb-lg-17"
+        style="background-image: url('assets/images/edit-user.jpg')">
+        <div class="container">
+            <div class="form-box">
+                <div class="form-tab">
+                    <ul class="nav nav-pills nav-fill" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link" id="signin-tab-2" data-toggle="tab" href="#signin-2" role="tab"
+                                aria-controls="signin-2" aria-selected="false">Add Product</a>
+                        </li>
+
+                    </ul>
+                    <div class="tab-content">
+
+                        <div class="tab-pane fade show active" id="register-2" role="tabpanel"
+                            aria-labelledby="register-tab-2">
+                            <form [formGroup]="productForm">
+                                <div>
+                                    <div class="form-group">
+                                        <label for="name">Product Name * </label>
+                                        <input type="text" class="form-control" [(ngModel)]='product.name'
+                                            formControlName="name" id="name" name="register-email" required>
+                                    </div><!-- End .form-group -->
+                                    <div
+                                        *ngIf="productForm.controls['name'].invalid && (productForm.controls['name'].dirty || productForm.controls['name'].touched)">
+                                        <div *ngIf='productForm.controls["name"].errors' style="color: red; ">
+                                            Name is required !
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="form-group">
+                                        <label for="price">Price *</label>
+                                        <input type="number" class="form-control" [(ngModel)]='product.price'
+                                            formControlName="price" id="price" required>
+                                    </div><!-- End .form-group -->
+                                    <div
+                                        *ngIf="productForm.controls['price'].invalid && (productForm.controls['price'].dirty || productForm.controls['price'].touched)">
+                                        <div *ngIf='productForm.controls["price"].errors' style="color: red; ">
+                                            Price is required !
+                                        </div>
+                                    </div>
+                                </div>
+                                  <form [formGroup]="categoryForm">
+                                <div class="row">
+                                    
+                                    <div class="col-sm-6">
+                                      
+                                        <label for="categ">Category *</label>
+                                        <div>
+                                            <select 
+                                                class="form-control" name="categ" id="categ" [(ngModel)]="category.categ" formControlName="categ">
+                                                <option [value]="categ.name" *ngFor="let categ of cat">{{categ.name}}</option>
+                                            </select>
+                                        </div>
+                                    </div><!-- End .form-group -->
+                                    <div class="col-sm-6">
+                                        <div>
+                                            <label for="category" style="margin-left: 10px;">New Category</label>
+                                            <!-- <form [formGroup]="categoryForm"> -->
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" [(ngModel)]='category.name_categorie' formControlName='name_categorie' id="category">
+                                                    <div class="input-group-append">
+                                                        <button style="color: #c96;" (click)="addCategory()" title="Add category"><i class="icon-plus"></i></button>
+                                                    </div><!-- .End .input-group-append -->
+                                                </div><!-- .End .input-group -->
+                                           
+                                        </div><!-- End .col-xl-7 -->
+                                    </div>
+                                </div>
+                                 </form>
+                                <div>
+                                    <div class="form-group">
+                                        <label for="quantity">Quantity *</label>
+                                        <input type="number" class="form-control" [(ngModel)]='product.quantity'
+                                            formControlName="quantity" id="quantity" required>
+                                    </div><!-- End .form-group -->
+                                    <div
+                                        *ngIf="productForm.controls['quantity'].invalid && (productForm.controls['quantity'].dirty || productForm.controls['quantity'].touched)">
+                                        <div *ngIf='productForm.controls["quantity"].errors' style="color: red; ">
+                                            Quantity is required !
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">Description *</label>
+                                    <input type="text" class="form-control" [(ngModel)]='product.description'
+                                        [ngModelOptions]="{standalone:true}" id="description">
+                                </div><!-- End .form-group -->
+                                <div class="form-group">
+                                    <label for="detail">Detail *</label>
+                                    <textarea type="text" class="form-control" [(ngModel)]='product.detail'
+                                        formControlName="detail" cols="30" rows="4" id="detail" name="detail"
+                                        required></textarea>
+                                </div>
+                                <!------------------------------------------------------------------------------------------------ -->
+
+                                <div class="accordion-summary" id="accordion-payment">
+                                    <div class="card">
+                                        <div class="card-header" id="heading-1">
+                                            <h2 class="card-title">
+                                                <a role="button" data-toggle="collapse" href="#collapse-1"
+                                                    aria-expanded="true" aria-controls="collapse-1" (click)="radio()">
+                                                    Discount !
+                                                </a>
+                                            </h2>
+                                        </div><!-- End .card-header -->
+                                        <div id="collapse-1" class="collapse show" aria-labelledby="heading-1"
+                                            data-parent="#accordion-payment">
+                                            <div class="form-row">
+                                                <div class="form-group col-md-12">
+                                                    <input type="number" id="remise" name="remise"
+                                                        [(ngModel)]='product.remise'
+                                                        [ngModelOptions]="{standalone:true}" class="form-control"
+                                                        placeholder="%">
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                            </div><!-- End .card-body -->
+                                        </div><!-- End .collapse -->
+                                    </div><!-- End .card -->
+                                </div>
+
+                                <!---*******************---------------*********************-------------------************---->
+                                <div class="col-md-6 offset-md-4">
+                                    <div class="btn-wrap">
+
+                                        <button class="btn btn-primary btn-rounded" (click)='filePicker.click()'>Select
+                                            photo 1</button>
+                                    </div><!-- End .btn-wrap -->
+                                    <div style="visibility: hidden;">
+                                        <div class="form_title">Photo</div>
+                                        <input type="file" class="form-control" r (change)='onImageSelected($event)'
+                                            #filePicker placeholder="experience" multiple>
+                                    </div>
+                                    <img [src]="imagePreview" *ngIf='imagePreview'
+                                        style="border-radius: 20%;width:100%; height:100%; margin-left: -15%;margin-top: -30%;">
+
+                                </div><!-- End .col-md-4 col-lg-2 -->
+
+                                <!--------------------------------------------------------------->
+
+                                <div class="col-md-6 offset-md-4">
+                                    <div class="btn-wrap">
+
+                                        <button class="btn btn-primary btn-rounded" (click)='filePickerr.click()'>Select
+                                            photo 2</button>
+                                    </div>
+                                    <div style="visibility: hidden;">
+                                        <div class="form_title">Photo 2</div>
+                                        <input type="file" name="imgg" class="form-control" r
+                                            (change)='onImageSelectedd($event)' #filePickerr placeholder="experience">
+                                    </div>
+                                    <img [src]="imagePrevieww" *ngIf='imagePrevieww'
+                                        style="border-radius: 20%;width:100%; height:100%; margin-left: -15%;margin-top: -30%;">
+                                </div>
+
+
+                                <div class="form-footer" style="margin-top:15%;">
+                                    <button (click)="Addproduct()" class="btn btn-outline-primary-2">
+                                        <span>Add Product</span>
+                                        <i class="icon-long-arrow-right"></i>
+                                    </button>
+
+                                </div>
+                                <div style="color: red;">{{msg}}</div>
+                            </form>
+                            <div class="form-choice">
+
+                            </div><!-- .End .tab-pane -->
+                        </div><!-- End .tab-content -->
+                    </div><!-- End .form-tab -->
+                </div><!-- End .form-box -->
+            </div><!-- End .container -->
+        </div><!-- End .login-page section-bg -->
+
+
+
+
+
+    </div><!-- End .page-wrapper -->
+    <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>

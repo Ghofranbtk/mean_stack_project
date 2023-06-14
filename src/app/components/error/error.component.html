@@ -1,0 +1,86 @@
+<div class="container-fluid">
+    <div class="heading heading-center mb-3">
+        <h2 class="title">Trending Product</h2><!-- End .title -->
+
+        <ul class="nav nav-pills justify-content-center" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="new-women-link" data-toggle="tab" href="#new-women-tab" role="tab" aria-controls="new-women-tab" aria-selected="true">Womens Clothing</a>
+            </li>
+            <li class="nav-item" *ngFor="let c of categorie">
+                <a class="nav-link" id="new-men-link" data-toggle="tab" href="#{{c.name}}" role="tab" aria-controls="new-men-tab" aria-selected="false">{{c.name}}</a>
+            </li>
+        </ul>
+    </div><!-- End .heading -->
+    <div class="tab-content">
+        <div class="tab-pane p-0 fade show active" id="new-women-tab" role="tabpanel" aria-labelledby="new-women-link">
+            <div class="products">
+                <div class="row justify-content-center">
+                                                                                                  
+                    
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-5col" *ngFor="let p of product">
+                        <div class="product product-7 text-center">
+                            <figure class="product-media">
+                                <a href="product.html">
+                                    <img src="{{p.img}}" alt="Product image" class="product-image">
+                                    <img src="{{p.imgg}}" alt="Product image" class="product-image-hover">
+                                </a>
+
+                                <div class="product-action-vertical">
+                                    <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                                    <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
+                                </div><!-- End .product-action-vertical -->
+
+                                <div class="product-action">
+                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                </div><!-- End .product-action -->
+                            </figure><!-- End .product-media -->
+
+                            <div class="product-body">
+                                <h3 class="product-title"><a href="product.html">{{p.name}}</a></h3><!-- End .product-title -->
+                                <div class="product-price">
+                                   ${{p.price}}
+                                </div><!-- End .product-price -->
+                              
+                            </div><!-- End .product-body -->
+                        </div><!-- End .product -->
+                    </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
+                   
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+                </div><!-- End .row -->
+            </div><!-- End .products -->
+        </div><!-- .End .tab-pane -->
+        <div class="tab-pane p-0 fade" id="{{categorie[0].name}}" role="tabpanel" aria-labelledby="new-men-link">
+            <div class="products">
+                <div class="row justify-content-center">     
+                                                                                                                                                                                                                                                                                                                                                       
+                   
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-5col" *ngFor="let p of product">
+                        <div class="product product-7 text-center">
+                            <figure class="product-media">
+                                <a href="product.html">
+                                    <img src="{{p.img}}" alt="Product image" class="product-image">
+                                    <img src="{{p.imgg}}" alt="Product image" class="product-image-hover">
+                                </a>
+
+                                <div class="product-action-vertical">
+                                    <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                                    <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
+                                </div><!-- End .product-action-vertical -->
+
+                                <div class="product-action">
+                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                </div><!-- End .product-action -->
+                            </figure><!-- End .product-media -->
+
+                            <div class="product-body">
+                                <h3 class="product-title"><a href="product.html">hhhh</a></h3><!-- End .product-title -->
+                                <div class="product-price">
+                                    ${{p.price}}
+                                </div><!-- End .product-price -->
+                            </div><!-- End .product-body -->
+                        </div><!-- End .product -->
+                    </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
+                </div><!-- End .row -->
+            </div><!-- End .products -->
+        </div><!-- .End .tab-pane -->
+    </div><!-- End .tab-content -->

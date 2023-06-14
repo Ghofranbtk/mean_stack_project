@@ -1,0 +1,145 @@
+<app-nav> </app-nav>
+
+<div class="page-wrapper" style="margin-top: -45%;">
+    <div class="content container-fluid">
+        <div class="row">
+            <div class="col-sm-12 mt-5">
+                <h3 class="page-title mt-3" style="margin-left: 1%;"> Welcome Administrator!</h3>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card board1 fill " >
+                    <div class="card-body">
+                        <div class="dash-widget-header">
+                            <div>
+                                <h3 class="card_widget_header"
+                                    style="font-size:300% ; margin-top: 10px; margin-left: 10px;">{{nbr_user}}</h3>
+                                <h6 class="text-muted" style="font-size: 130%; margin-left: 10px; margin-top: 10px;">
+                                    Total Clients</h6>
+                            </div>
+                            <img src="/assets/admin/img/user.png" style="margin-left: 80px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card board1 fill" style=" height: 100%;">
+                    <div class="card-body">
+                        <div class="dash-widget-header">
+                            <div>
+                                <h3 class="card_widget_header"
+                                    style="font-size:300% ; margin-top: 10px; margin-left: 10px;">{{nbr_order}}</h3>
+                                <h6 class="text-muted" style="font-size: 130%; margin-left: 10px; margin-top: 10px;">
+                                    Total Orders </h6>
+                            </div>
+                            <img src="/assets/admin/img/order.png" style="margin-left: 80px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card board1 fill" style=" height: 100%;">
+                    <div class="card-body">
+                        <div class="dash-widget-header">
+                            <div>
+                                <h3 class="card_widget_header"
+                                    style="font-size:300% ; margin-top: 10px; margin-left: 10px;">${{prices}}</h3>
+                                <h6 class="text-muted" style="font-size: 130%; margin-left: 10px; margin-top: 10px;">
+                                    Profits</h6>
+                            </div>
+                            <img src="/assets/admin/img/profits.png" style="margin-left: 80px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card board1 fill" style=" height: 100%;">
+                    <div class="card-body">
+                        <div class="dash-widget-header">
+                            <div>
+                                <h3 class="card_widget_header"
+                                    style="font-size:300% ; margin-top: 10px; margin-left: 10px;">{{nbr_product}}</h3>
+                                <h6 class="text-muted" style="font-size: 130%; margin-left: 10px; margin-top: 10px;">
+                                    Total Products</h6>
+                            </div>
+                            <img src="/assets/admin/img/product.png" style="margin-left: 70px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-md-12 col-lg-6">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <h4 class="card-title">Product%Category</h4>
+                    </div>
+                    <div style="width: 100%; height: 100%">
+                        <google-chart [data]="pieChart">
+                        </google-chart>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-6">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <h4 class="card-title">Payments</h4>
+                    </div>
+                    <div style="width: 100%; height: 100%">
+                    <google-chart [data]="lineChart">
+                    </google-chart>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 d-flex">
+                <div class="card card-table flex-fill">
+                    <div class="card-header">
+                        <h4 class="card-title float-left mt-2">Latest Arrivals</h4>
+
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-center">
+                                <thead>
+                                    <tr>
+                                        <th>Product ID</th>
+                                        <th>Name</th>
+
+                                        <th>Category</th>
+                                        <th class="text-center">Quantity</th>
+
+                                        <th class="text-center">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let i of latestArrivals">
+                                        <td class="text-nowrap">
+                                            <div>{{i._id}}</div>
+                                        </td>
+                                        <td class="text-nowrap">{{i.name}}</td>
+
+                                        <td>{{i.categorie}}</td>
+                                        <td class="text-center">{{i.quantity}}</td>
+
+                                        <td class="text-center"> <span class="badge badge-pill bg-success inv-badge">On
+                                                Way</span> </td>
+                                    </tr>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

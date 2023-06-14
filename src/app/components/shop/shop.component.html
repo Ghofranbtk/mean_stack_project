@@ -1,0 +1,181 @@
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/plugins/owl-carousel/owl.carousel.css">
+<link rel="stylesheet" href="/assets/css/plugins/magnific-popup/magnific-popup.css">
+<link rel="stylesheet" href="/assets/css/plugins/nouislider/nouislider.css">
+
+
+<app-header></app-header>
+<div class="page-wrapper">
+
+
+    <main class="main">
+        <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+            <div class="container">
+                <h1 class="page-title">Grid 3 Columns<span>Shop</span></h1>
+            </div>
+        </div>
+
+        <div class="page-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <div class="toolbox">
+                            <div class="toolbox-left">
+                                <div class="toolbox-info">
+                                    <!-- Showing <span>9 of 56</span> Products -->
+                                </div><!-- End .toolbox-info -->
+                            </div><!-- End .toolbox-left -->
+                        </div><!-- End .toolbox -->
+
+                        <div class="products mb-3">
+                            <div class="row justify-content-center">
+                                <div class="col-6 col-md-4 col-lg-4" *ngFor="let i of products | paginate: { itemsPerPage: 9, currentPage: p }" >
+                                    <div   class="product product-7 text-center" >
+                                        <figure class="product-media">
+                                            <span class="product-label label-new" *ngIf="i.solde">{{i.remise}} %</span>
+                                                <div style="cursor: pointer;">
+                                                <img src="{{i.img}}" alt="Product image" class="product-image">
+                                                <img src="{{i.imgg}}" alt="Product image" class="product-image-hover">
+                                            </div>
+                                            <div class="product-action-vertical">
+                                                <a style="cursor: pointer;" (click)="addWishlist(i)"
+                                                    class="btn-product-icon btn-wishlist btn-expandable"><span>add to
+                                                        wishlist</span></a>
+                                                <a style="cursor: pointer;" (click)="viewProduct(i._id)" class="btn-product-icon btn-quickview"
+                                                    title="Quick view"><span>Quick view</span></a>
+
+                                            </div><!-- End .product-action-vertical -->
+
+                                            <div class="product-action">
+                                                <a style="cursor: pointer;" (click)="SaveInPanier(i)"
+                                                    class="btn-product btn-cart"><span>add to cart</span></a>
+                                            </div><!-- End .product-action -->
+                                        </figure><!-- End .product-media -->
+
+                                        <div class="product-body">
+                                            <div class="product-cat">
+                                                <a href="#">{{i.categorie}}</a>
+                                            </div><!-- End .product-cat -->
+                                            <h3 class="product-title"><a href="product.html">{{i.name}}</a></h3>
+                                            <!-- End .product-title -->
+                                            <div class="product-price" *ngIf="i.solde">
+                                                <span class="new-price">Now ${{i.new_price}}</span>
+                                                <span class="old-price">Was ${{i.price}}</span>
+                                            </div>
+                                            
+                                            
+                                            <div class="product-price" *ngIf ="!i.solde" > 
+                                                ${{i.price}}
+                                            </div><!-- End .product-price -->
+                                        </div><!-- End .product-body -->
+                                    </div><!-- End f.product -->
+                                  
+
+                                </div><!-- End .col-sm-6 col-lg-4 -->
+                            </div><!-- End .row -->
+                        </div><!-- End .products -->
+
+                        <nav aria-label="Page navigation">
+                            <div >
+                            <pagination-controls 
+                             (pageChange)="p = $event"></pagination-controls>
+                        </div>
+                        </nav>
+                    </div><!-- End .col-lg-9 -->
+                    <aside class="col-lg-3 order-lg-first">
+                        <div class="sidebar sidebar-shop">
+                            <div class="widget widget-clean">
+                                <label style="font-size: 20px;">Filters:</label>
+                                <a style="cursor: pointer;color: #c96;font-size: 18px;" (click)="cleanAll()"
+                                    class="sidebar-filter-clear">All Products</a>
+                            </div><!-- End .widget widget-clean -->
+
+                            <div class="widget widget-collapsible">
+                                <h3 class="widget-title">
+                                    <a data-toggle="collapse" href="#widget-1" role="button" aria-expanded="true"
+                                        aria-controls="widget-1">
+                                        Category
+                                    </a>
+                                </h3><!-- End .widget-title -->
+
+                                <div class="collapse show" id="widget-1">
+                                    <div class="widget-body">
+                                        <div class="filter-items filter-items-count">
+                                            <div class="filter-item">
+
+                                                <div class="custom-control custom-radio" *ngFor="let i of category">
+                                                    <input type="radio" name="ran" id="ran" 
+                                                        (click)="GetSelectedCategory(i.name)" style="accent-color: #333;">
+                                                        <label for="ran" style="font-size: 18px; color: #333;margin-left: 10px;">  {{i.name}}</label>
+                                                </div>
+                                            </div><!-- End .filter-item -->
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- End .widget -->
+                            <div class="widget widget-collapsible">
+                                <h3 class="widget-title">
+                                    <a data-toggle="collapse" href="#widget-5" role="button" aria-expanded="true"
+                                        aria-controls="widget-5">
+                                        Price
+                                    </a>
+                                </h3><!-- End .widget-title -->
+
+
+                                <div class="collapse show" id="widget-5">
+                                    <div class="widget-body">
+                                        <div class="filter-price">
+                                            <div class="filter-price-text">
+                                                <div class="filter-item">
+                                                    <div class="custom-control custom-radio">
+                                                        <input type="radio" name="ran" id="ran" value="high" (click)="SelectedPrice('high')"
+                                                            style="accent-color: #333;">
+                                                        <label for="ran" style="font-size: 18px; color: #333;margin-left: 10px;">From Low to High</label><br>
+                                                        <input type="radio" name="ran" id="rane"  value="low" (click)="SelectedPrice('low')"
+                                                        style="accent-color: #333;">
+                                                    <label for="rane" style="font-size: 18px; color: #333;margin-left: 10px;">From High to Low</label>
+                                                    </div>
+                                                </div><!-- End .filter-item -->
+                                                
+                                            </div><!-- End .filter-price-text -->
+
+                                            <div id="price-slider" class="noUi-target noUi-ltr noUi-horizontal"></div><!-- End #price-slider -->
+                                        </div><!-- End .filter-price -->
+                                    </div><!-- End .widget-body -->
+                                </div><!-- End .collapse -->
+                            </div><!-- End .widget -->
+                        </div><!-- End .sidebar sidebar-shop -->
+                    </aside><!-- End .col-lg-3 -->
+                </div><!-- End .row -->
+            </div><!-- End .container -->
+        </div><!-- End .page-content -->
+    </main><!-- End .main -->
+
+
+</div><!-- End .page-wrapper -->
+<button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu-overlay"></div><!-- End .mobil-menu-overlay -->
+<app-footer></app-footer>
+
+
+
+
+<!-- Plugins JS File -->
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/js/jquery.hoverIntent.min.js"></script>
+<script src="/assets/js/jquery.waypoints.min.js"></script>
+<script src="/assets/js/superfish.min.js"></script>
+<script src="/assets/js/owl.carousel.min.js"></script>
+<script src="/assets/js/wNumb.js"></script>
+<script src="/assets/js/bootstrap-input-spinner.js"></script>
+<script src="/assets/js/jquery.magnific-popup.min.js"></script>
+<script src="/assets/js/nouislider.min.js"></script>
+<!-- Main JS File -->
+
+
+
+<!-- ---------------------------------- -->

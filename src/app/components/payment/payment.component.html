@@ -1,0 +1,76 @@
+<body>
+    <div id="invoiceholder">
+    <div id="invoice" class="effect2">
+      <div id="htmlData">
+      <div id="invoice-top">
+        <div class="logo">
+            <a href="index.html" class="logo" > 
+                <img src="/assets/images/logo2.png" width="60" height="70" alt="logo">
+                </a>
+        </div>                                                
+      </div><!--End InvoiceTop-->    
+      
+      <div id="invoice-mid">   
+        <div id="message">
+          <h2>Hello {{user.fname}} {{user.lname}},</h2>
+          <p>An invoice with invoice number #<span id="invoice_num" style="color:#a6c76c ;">{{id_order}}</span><br> is created for  which is 100% matched with PO and is waiting for your approval. to login to view the invoice.</p>
+        </div>
+         <div class="cta-group mobile-btn-group">
+              <a href="javascript:void(0);" (click)="openPDF()" class="btn-primary">Get PDF</a>
+              <!-- <a href="javascript:void(0);" class="btn-default">Reject</a> -->
+          </div> 
+      </div><!--End Invoice Mid-->
+      
+      <div id="invoice-bot">
+        
+        <div id="table">
+          <table class="table-main">
+            <thead>    
+                <tr class="tabletitle">
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Quantity</th>
+                  <th>Unit Price</th>
+                  <!-- <th>Category</th> -->
+                  <!-- <th>total price</th> -->
+                  <!-- <th>%</th> -->
+                  <!-- <th>Tax Amount</th> -->
+                  <!-- <th>AWT</th> -->
+                  <th>Total</th>
+                </tr>
+            </thead>
+            <tr class="list-item" *ngFor='let in of counter(number_order) ;let i = index'>
+              <td data-label="Type" class="tableitem">{{order.products[i]._id}}</td>
+              <td data-label="Description" class="tableitem">{{order.products[i].name}}</td>
+              <td data-label="Quantity" class="tableitem">{{order.products[i].quantity}}</td>
+              <td data-label="Unit Price" class="tableitem">{{order.products[i].price}}</td>
+              <td data-label="Taxable Amount" class="tableitem">{{order.products[i].total}}</td>
+            </tr>
+                                                                                                                        
+              <tr class="list-item total-row">
+                  <th colspan="4" class="tableitem">Grand Total</th>
+                  <td data-label="Grand Total" class="tableitem" style="color: #c96;">{{order.total_prices}}</td>
+              </tr>
+          </table>
+        </div><!--End Table-->
+        
+        <div class="cta-group">
+          <a href="javascript:void(0);" (click)="openPDF()" class="btn-primary">Get PDF</a>
+          <!-- <a href="javascript:void(0);" class="btn-default">Reject</a> -->
+      </div> 
+        
+      </div><!--End InvoiceBot-->
+      <!-- <footer> -->
+        <!-- <div id="legalcopy" class="clearfix"> -->
+          <!-- <p class="col-right">Our mailing address is: -->
+              <!-- <span class="email"><a href="mailto:supplier.portal@almonature.com">supplier.portal@almonature.com</a></span> -->
+          <!-- </p> -->
+        <!-- </div> -->
+      <!-- </footer> -->
+    </div>
+    </div><!--End Invoice-->
+  </div><!-- End Invoice Holder-->
+    
+    
+  
+  </body>

@@ -1,0 +1,120 @@
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+	<link rel="stylesheet" href="/assets/admin/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/assets/admin/plugins/fontawesome/css/fontawesome.min.css">
+	<link rel="stylesheet" href="/assets/admin/plugins/fontawesome/css/all.min.css">
+	<link rel="stylesheet" href="/assets/admin/css/feathericon.min.css">
+	<link rel="stylehseet" href="https://cdn.oesmith.co.uk/morris-0.5.1.css">
+	<link rel="stylesheet" href="/assets/admin/plugins/morris/morris.css">
+	<link rel="stylesheet" href="/assets/admin/css/style.css"> 
+
+<body>
+	<div class="main-wrapper">
+		<div class="header" style="margin-top: 1%;">
+			<div class="header-left">
+				<a href="index.html" class="logo"> <img src="/assets/images/logo2.png" width="50" height="70" alt="logo"> </a>
+				<a href="index.html" class="logo logo-small" style="margin: auto"> <img src="assets/admin/img/rbt.png" alt="Logo" width="30" height="30"> </a>
+			</div>
+			<a href="javascript:void(0);" id="toggle_btn"> <i class="fe fe-text-align-left"></i> </a>
+			<a class="mobile_btn" id="mobile_btn"> <i class="fas fa-bars"></i> </a>
+			<ul class="nav user-menu">
+				<li >
+					<div class="dropdown cart-dropdown">
+						<div class="header-search">
+							<a href="#" class="search-toggle" role="button" title="Search"><i class="icon-search"></i></a>
+							<form autocomplete="off" method="get">
+								<div class="header-search-wrapper">
+									<!-- <label for="q" class="sr-only">Search</label> -->
+									<input type="text" class="form-control" name="q" id="q" placeholder="Search in...">
+									<div class="dropdown-menu dropdown-menu-right">
+										<!-- <div *ngFor="let i of product | filter: filterTerm"> -->
+										<div class="product">
+											<div class="product-cart-details">
+												<h5 class="product-title">
+													<!-- <a href="product.html">{{i.name}}</a> -->
+												</h5>
+												<br>
+											</div>
+											<!-- End .product-cart-details -->
+											<figure class="product-image-container">
+												<a href="product.html" class="product-image">
+													<!-- <img src="/assets/images/back/{{i.img}}" alt="product"> -->
+												</a>
+											</figure>
+										</div>
+										<!-- </div> -->
+									</div>
+								</div>
+								<!-- End .header-search-wrapper -->
+							</form>
+						</div>
+					</div>
+				</li>
+				<li class="nav-item dropdown has-arrow">
+					<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"> <span class="user-img"><img
+								class="rounded-circle" src="assets/admin/img/rbt.png" width="31" alt="Soeng Souy"></span>
+					</a>
+					<div class="dropdown-menu">
+						<div class="user-header">
+	
+							<div class="user-text" style="margin-left: 8%">
+								<h4 style="margin-left: -8%;font-weight: bold;">Administrator </h4>
+								<p class="text-muted mb-0" style="margin-left:8%;visibility: hidden;">Administrator</p>
+							</div>
+						</div>
+	
+						<!-- <a class="dropdown-item" style="cursor: pointer;" (click)="profil()">My Profile</a> -->
+						<!-- <a class="dropdown-item" style="cursor: pointer;" (click)="setting()">Account Settings</a> -->
+						<!-- <a class="dropdown-item" style="cursor: pointer;" (click)="logout()">Logout</a> -->
+	
+					</div>
+				</li>
+				
+			</ul>
+		</div>
+		<div class="sidebar" id="sidebar">
+			<div class="sidebar-inner slimscroll">
+				<div id="sidebar-menu" class="sidebar-menu">
+					<ul>
+						<li class="active"> <a routerLink="/admin"><i class="fas fa-tachometer-alt"></i>
+							<span>Dashboard</span></a> </li>
+					<li class="list-divider"></li>
+					<li class="submenu"> <a href="#"><i class="material-icons">person</i><span> Employees </span>
+							<span class="menu-arrow"></span></a>
+
+					<li class="submenu"> <a href="products.html" routerLink="/products"><i
+								class="fas fa-suitcase"></i> <span> Products </span> <span
+								class="menu-arrow"></span></a>
+
+					<li class="submenu"> <a href="customers.html" routerLink="/customers"><i
+								class="material-icons">assignment_ind</i> <span>Customers</span> <span
+								class="menu-arrow"></span></a>
+
+					<li class="submenu"> <a href="orders.html" routerLink="/orders"><i
+								class="material-icons">shopping_cart</i><span> Orders </span> <span
+								class="menu-arrow"></span></a>
+
+					<li class="submenu"> <a href="wishlists.html" routerLink="/wishlist"><i
+								class="material-icons">favorite</i><span>Wishlists </span> <span
+								class="menu-arrow"></span></a>
+					<li class="submenu"> <a href="history.html" routerLink="/history"><i
+								class="material-icons">history</i><span>History </span> <span
+								class="menu-arrow"></span></a>
+
+					<li class="submenu"> <a href="blogs.html" routerLink="/blogs"><i
+								class="material-icons">insert_drive_file</i><span>Blogs </span> <span
+								class="menu-arrow"></span></a>
+					<li class="submenu"> <a href="feedbacks.html" routerLink="/feedbacks"><i
+								class="material-icons">chat</i><span> Feedbacks </span> <span
+								class="menu-arrow"></span></a>																							
+			
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!-- ----------------------- -->
+	</div>
+	
+</body>
+

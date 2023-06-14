@@ -1,0 +1,335 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
+
+
+<!-- Favicon -->
+<link rel="apple-touch-icon" sizes="180x180" href="assets/images/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/icons/favicon-16x16.png">
+<link rel="manifest" href="assets/images/icons/site.html">
+<link rel="mask-icon" href="assets/images/icons/safari-pinned-tab.svg" color="#666666">
+<link rel="shortcut icon" href="assets/images/icons/favicon.ico">
+<meta name="apple-mobile-web-app-title" content="Molla">
+<meta name="application-name" content="Molla">
+<meta name="msapplication-TileColor" content="#cc9966">
+<meta name="msapplication-config" content="assets/images/icons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<!-- Plugins CSS File -->
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="/assets/css/plugins/owl-carousel/owl.carousel.css">
+<link rel="stylesheet" href="/assets/css/plugins/magnific-popup/magnific-popup.css">
+<!-- Main CSS File -->
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/plugins/nouislider/nouislider.css">
+
+<app-header></app-header>
+
+<div class="page-wrapper" style="margin-top: 100px;">
+
+
+    <main class="main">
+        <div class="page-content">
+            <div class="container">
+                <div class="product-details-top mb-2">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="product-gallery product-gallery-vertical">
+                                <div class="row">
+                                    <figure class="product-main-image">
+
+                                        <span *ngIf="pro_remise" class="product-label label-sale"> % {{produit.remise}}
+                                            sale</span>
+                                        <div class="zoom-without-container">
+                                            <img src="{{pro_img}}" alt="zoom">
+                                        </div>
+
+                                        <a href="{{pro_img}}" id="btn-product-gallery" class="btn-product-gallery">
+                                            <i class="icon-arrows"></i>
+                                        </a>
+                                    </figure><!-- End .product-main-image -->
+
+                                    <div id="product-zoom-gallery" class="product-image-gallery"
+                                        style="width: 50px;height: 300px;margin-top: 25%;">
+                                        <a class="product-gallery-item active" href="{{pro_img}}"
+                                            data-image="assets/images/1.jpg">
+                                            <img src="{{pro_img}}" alt="product side">
+                                        </a>
+
+                                        <a class="product-gallery-item" href="{{pro_imgg}}"
+                                            data-image="assets/images/product/aa.jpg" style="margin-top:10px">
+                                            <img src="{{pro_imgg}}" alt="product cross">
+                                        </a>
+                                    </div><!-- End .product-image-gallery -->
+                                </div><!-- End .row -->
+                            </div><!-- End .product-gallery -->
+                        </div><!-- End .col-md-6 -->
+
+                        <div class="col-md-6">
+                            <div class="product-details product-details-centered">
+                                <br>
+                                <h1 class="product-title">{{pro_name}}</h1><!-- End .product-title -->
+
+                                <div class="ratings-container">
+                                   
+                                    <div *ngFor='let in of counter(stars) ;let i = index'>
+                                        <img src="/assets/images/nejma.png">
+                                        <!-- <p>{{i}}</p> -->
+                                    </div>
+                               
+                                    <div *ngFor='let in of counter(5-(stars)) ;let j = index'>
+                                        <img src="/assets/images/star.png" style="margin-top: -1.5px;">
+                                        <!-- <p>{{i}}</p> -->
+                                    </div>
+
+                                    <a class="ratings-text" href="#product-review-link" id="review-link">(
+                                        {{number_review}} Reviews )</a>
+                                </div><!-- End .rating-container -->
+
+                                <div class="product-price">
+                                    <span class="new-price" *ngIf="pro_remise">$ {{new_solde}}</span>
+                                    <span class="old-price" *ngIf="pro_remise">Was ${{pro_price}}</span>
+                                    <div class="product-price" *ngIf="!pro_remise">${{pro_price}}</div>
+                                </div><!-- End .product-price -->
+
+                                <div class="product-content">
+                                    <p>-{{pro_description}}</p>
+                                </div><!-- End .product-content -->
+
+
+
+
+
+
+
+                                <div class="product-details-action">
+                                    <div class="details-action-col">
+                                        <div class="product-details-quantity">
+                                            <input type="number" id="qty" class="form-control" value="1" min="1"
+                                                max="10" step="1" data-decimals="0" required>
+                                            <!-- <a >  <span style="color: #bf8040;font-size: 20px;">  -  </span></a> -->
+                                            <!-- {{panier.quantity}}  -->
+                                            <!-- <a >  <span style="color: #bf8040;font-size: 18px;">  +  </span></a> -->
+                                        </div><!-- End .product-details-quantity -->
+
+                                        <a (click)="addCart(produit)" class="btn-product btn-cart"><span>add to
+                                                cart</span></a>
+                                    </div><!-- End .details-action-col -->
+                                    <div style="color: red;">{{msgError}}</div>
+                                    <div class="details-action-wrapper">
+                                        <a style="cursor: pointer;" class="btn-product btn-wishlist"
+                                            (click)="addWishlist(produit)" title="Wishlist"><span>Add to
+                                                Wishlist</span></a>
+
+                                    </div><!-- End .details-action-wrapper -->
+                                </div><!-- End .product-details-action -->
+
+                                <div class="product-details-footer">
+                                    <div class="product-cat" style="margin-left:170px">
+                                        <span>Category:</span>
+                                        <a href="#">{{pro_categorie}}</a>
+
+
+                                    </div><!-- End .product-cat -->
+
+
+                                </div><!-- End .product-details-footer -->
+                            </div><!-- End .product-details -->
+                        </div><!-- End .col-md-6 -->
+                    </div><!-- End .row -->
+                </div><!-- End .product-details-top -->
+
+                <div class="product-details-tab">
+                    <ul class="nav nav-pills justify-content-center" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="product-desc-link" data-toggle="tab" href="#product-desc-tab"
+                                role="tab" aria-controls="product-desc-tab" aria-selected="true">Description</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="product-info-link" data-toggle="tab" href="#product-info-tab"
+                                role="tab" aria-controls="product-info-tab" aria-selected="false">Leave a comment</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="product-review-link" data-toggle="tab" href="#product-review-tab"
+                                role="tab" aria-controls="product-review-tab" aria-selected="false">Reviews
+                                ({{number_review}})</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="product-desc-tab" role="tabpanel"
+                            aria-labelledby="product-desc-link">
+                            <div class="product-desc-content">
+                                <h3>Product Information</h3>
+                                <p>{{pro_detail}} </p>
+                            </div><!-- End .product-desc-content -->
+                        </div><!-- .End .tab-pane -->
+                        <div class="tab-pane fade" id="product-info-tab" role="tabpanel"
+                            aria-labelledby="product-info-link">
+
+                            <form [formGroup]="avisproForm" class="contact-form mb-3">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label for="cname" class="sr-only">Reviw </label>
+                                        <input type="text" class="form-control" [(ngModel)]='avispro.review'
+                                            formControlName="review" id="creview" placeholder="Your Reviw *" required>
+                                    </div>
+
+
+
+
+                                    <div class="rate">
+                                        <input type="radio" id="star5" [ngModel]="avispro.star" formControlName="star"
+                                            name="star" value="5" />
+                                        <label for="star5" title="Awesome"></label>
+
+                                        <input type="radio" id="star4" [ngModel]="avispro.star" formControlName="star"
+                                            name="star" value="4" />
+                                        <label for="star4"></label>
+
+
+                                        <input type="radio" [ngModel]="avispro.star" formControlName="star" id="star3"
+                                            name="star" value="3" />
+                                        <label for="star3"></label>
+
+
+                                        <input type="radio" id="star2" [ngModel]="avispro.star" formControlName="star"
+                                            name="star" value="2" />
+                                        <label for="star2"></label>
+
+
+                                        <input type="radio" id="star1" [ngModel]="avispro.star" formControlName="star"
+                                            name="star" value="1" />
+                                        <label for="star1"></label>
+                                    </div>
+
+                                </div>
+
+                                <label for="cdetails" class="sr-only">More Details</label>
+                                <textarea type="text" class="form-control" [(ngModel)]='avispro.details'
+                                    formControlName="details" cols="30" rows="4" id="details" name="details"
+                                    placeholder="More Details *" required></textarea>
+
+                                <div style="color: red;">{{msg}}</div>
+
+                                <button type="submit" (click)="Addavispro()"
+                                    class="btn btn-outline-primary-2 btn-minwidth-sm">
+                                    <span>SUBMIT</span>
+                                    <i class="icon-long-arrow-right"></i>
+                                </button>
+
+                            </form>
+                        </div><!-- .End .tab-pane -->
+
+
+
+
+
+
+
+
+
+                        <div class="tab-pane fade" id="product-review-tab" role="tabpanel"
+                            aria-labelledby="product-review-link">
+                            <div class="reviews">
+                                <h3>Reviews ({{number_review}})</h3>
+                                <div class="review" *ngFor="let r of reviews ">
+                                    <div class="row no-gutters">
+                                        <div class="col-auto">
+                                            <h4>{{r.name}}</h4>
+                                            <div class="ratings-container">
+                                                <div *ngFor='let in of counter(r.star) ;let i = index'>
+                                                    <img src="/assets/images/nejma.png">
+                                                    <!-- <p>{{i}}</p> -->
+                                                </div>
+                                                <div *ngFor='let in of counter(5-(r.star)) ;let j = index'>
+                                                    <img src="/assets/images/star.png" style="margin-top: -4.5px;">
+                                                    <!-- <p>{{i}}</p> -->
+                                                </div>
+
+
+
+                                            </div><!-- End .rating-container -->
+
+                                        </div><!-- End .col -->
+                                        <div class="col">
+                                            <h4>{{r.review}}</h4>
+
+                                            <div class="review-content">
+                                                <p>{{r.datails}}</p>
+                                                <p> </p>
+                                            </div><!-- End .review-content -->
+
+                                            <div class="review-action">
+                                                <!-- <a href="#"><i class="icon-thumbs-up"></i>Helpful (2)</a> -->
+                                                <!-- <a href="#"><i class="icon-thumbs-down"></i>Unhelpful (0)</a> -->
+                                            </div><!-- End .review-action -->
+                                        </div><!-- End .col-auto -->
+                                    </div><!-- End .row -->
+                                </div><!-- End .review -->
+
+
+                            </div><!-- End .reviews -->
+                        </div><!-- .End .tab-pane -->
+                    </div><!-- End .tab-content -->
+                </div><!-- End .product-details-tab -->
+
+                <h2 class="title text-center mb-4">You May Also Like</h2><!-- End .title text-center -->                                                                                                                                                                                                                                                                                                                                 --
+
+                <div class="products">
+                    <div class="row justify-content-center">
+                                                                                                      
+                        
+                        <div class="col-6 col-md-4 col-lg-3 col-xl-5col" *ngFor="let p of list">
+                            <div class="product product-7 text-center" *ngIf="p" >
+                                <figure class="product-media">
+                                    <a href="product.html">
+                                        <img src="{{p.img}}" alt="Product image" class="product-image">
+                                        <img src="{{p.imgg}}" alt="Product image" class="product-image-hover">
+                                    </a>
+                                    <div class="product-action-vertical">
+                                        <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                                        <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
+                                    </div><!-- End .product-action-vertical -->
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                    </div><!-- End .product-action -->
+                                </figure><!-- End .product-media -->
+                                <div class="product-body">
+                                    <h3 class="product-title"><a href="product.html">{{p.name}}</a></h3><!-- End .product-title -->
+                                    <div class="product-price">
+                                       ${{p.price}}
+                                    </div><!-- End .product-price -->
+                                  
+                                </div><!-- End .product-body -->
+                            </div><!-- End .product -->
+                        </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
+                       
+                                                                                                                                                                   
+                    </div><!-- End .row -->
+                </div><!-- End .products -->
+            </div>
+
+
+        </div><!-- End .page-content -->
+
+    </main><!-- End .main -->
+
+</div><!-- End .page-wrapper -->
+<button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu-overlay"></div><!-- End .mobil-menu-overlay -->
+<app-footer></app-footer>
+
+
+<!-- Plugins JS File -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/jquery.hoverIntent.min.js"></script>
+<script src="assets/js/jquery.waypoints.min.js"></script>
+<script src="assets/js/superfish.min.js"></script>
+<script src="assets/js/owl.carousel.min.js"></script>
+<script src="assets/js/bootstrap-input-spinner.js"></script>
+<script src="assets/js/jquery.elevateZoom.min.js"></script>
+<script src="assets/js/bootstrap-input-spinner.js"></script>
+<script src="assets/js/jquery.magnific-popup.min.js"></script>
+<!-- Main JS File -->
+<script src="assets/js/main.js"></script>

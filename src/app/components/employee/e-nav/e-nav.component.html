@@ -1,0 +1,152 @@
+<link rel="shortcut icon" type="image/x-icon" href="/assets/admin/img/favicon.png">
+<link rel="stylesheet" href="/assets/admin/css/bootstrap.min.css">
+<link rel="stylesheet" href="/assets/admin/plugins/fontawesome/css/fontawesome.min.css">
+<link rel="stylesheet" href="/assets/admin/plugins/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="/assets/admin/css/feathericon.min.css">
+<link rel="stylehseet" href="https://cdn.oesmith.co.uk/morris-0.5.1.css">
+<link rel="stylesheet" href="/assets/admin/plugins/morris/morris.css">
+<link rel="stylesheet" href="/assets/admin/css/style.css">
+
+<div class="main-wrapper slide-nav">
+    <div class="header">
+        <div class="header-left">
+            <a href="index.html" class="logo" style="margin-top: 150px"> <img src="/assets/images/logo2.png" width="50" height="70" alt="logo"> <span class="logoclass">HOTEL</span> </a>
+            <a href="index.html" class="logo logo-small"> <img src="/assets/images/logo2.png" alt="Logo" width="30" height="30"> </a>
+        </div>
+
+
+        <ul class="nav user-menu">
+            <li style="margin-right: 15px;">
+                <div class="dropdown cart-dropdown">
+                    <div class="header-search">
+                        <a href="#" class="search-toggle" role="button" title="Search"><i class="icon-search"></i></a>
+                        <form autocomplete="off" method="get">
+                            <div class="header-search-wrapper">
+                                <!-- <label for="q" class="sr-only">Search</label> -->
+                                <input type="text" class="form-control" name="q" id="q" placeholder="Search in...">
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <!-- <div *ngFor="let i of product | filter: filterTerm"> -->
+                                    <div class="product">
+                                        <div class="product-cart-details">
+                                            <h5 class="product-title">
+                                                <!-- <a href="product.html">{{i.name}}</a> -->
+                                            </h5>
+                                            <br>
+                                        </div>
+                                        <!-- End .product-cart-details -->
+                                        <figure class="product-image-container">
+                                            <a href="product.html" class="product-image">
+                                                <!-- <img src="/assets/images/back/{{i.img}}" alt="product"> -->
+                                            </a>
+                                        </figure>
+                                    </div>
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+                            <!-- End .header-search-wrapper -->
+                        </form>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown has-arrow">
+                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"> <span class="user-img"><img class="rounded-circle" src="assets/admin/img/rbt.png" width="31" alt="Soeng Souy"></span> </a>
+                <div class="dropdown-menu">
+                    <div class="user-header">
+
+                        <div class="user-text" style="margin-left: 200px">
+                            <h4 style="margin-left: -200px">Employee </h4>
+                            <p class="text-muted mb-0" style="margin-left: 200px">Employee</p>
+                        </div>
+                    </div>
+
+                    <a class="dropdown-item" href="profile.html">My Profile</a>
+                    <a class="dropdown-item" href="settings.html">Account Settings</a>
+                    <a class="dropdown-item" href="login.html">Logout</a>
+
+                </div>
+            </li>
+        </ul>
+
+    </div>
+    <div class="sidebar" id="sidebar">
+        <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: 100%; height: 597px;">
+            <div class="sidebar-inner slimscroll" style="overflow: hidden; width: 100%; height: 597px;">
+                <div id="sidebar-menu" class="sidebar-menu">
+                    <ul>
+                        <li class="active"> <a href="index.html"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a> </li>
+                        <li class="list-divider"></li>
+
+                        <li class="submenu"> <a href="products.html" routerLink="/e-products"><i class="fas fa-suitcase"></i> <span> Products </span> <span class="menu-arrow"></span></a>
+                            <ul class="submenu_class" style="display: none;">
+                                <li><a href="all-booking.html"> All Booking </a></li>
+                                <li><a href="edit-booking.html"> Edit Booking </a></li>
+                                <li><a href="add-booking.html"> Add Booking </a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu"> <a href="customers.html" routerLink="/e-customers"><i class="material-icons">assignment_ind</i> <span>Customers</span> <span class="menu-arrow"></span></a>
+                            <ul class="submenu_class" style="display: none;">
+                                <li><a href="all-rooms.html">All Rooms </a></li>
+                                <li><a href="edit-room.html"> Edit Rooms </a></li>
+                                <li><a href="add-room.html"> Add Rooms </a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu"> <a href="orders.html" routerLink="/e-orders"><i class="material-icons">shopping_cart</i><span> Orders </span> <span class="menu-arrow"></span></a>
+                            <ul class="submenu_class" style="display: none;">
+                                <li><a href="all-customer.html"> All customers </a></li>
+                                <li><a href="edit-customer.html"> Edit Customer </a></li>
+                                <li><a href="add-customer.html"> Add Customer </a></li>
+                            </ul>
+                        </li>
+
+                        <li class="submenu"> <a href="wishlists.html" routerLink="/e-wishlists"><i class="material-icons">favorite</i><span>Wishlists </span> <span class="menu-arrow"></span></a>
+                            <ul class="submenu_class" style="display: none;">
+                                <li><a href="all-staff.html">All Staff </a></li>
+                                <li><a href="edit-staff.html"> Edit Staff </a></li>
+                                <li><a href="add-staff.html"> Add Staff </a></li>
+                            </ul>
+                        </li>
+
+                        <li class="submenu"> <a href="blogs.html" routerLink="/e-blogs"><i class="material-icons">insert_drive_file</i><span>Blogs </span> <span class="menu-arrow"></span></a>
+                            <ul class="submenu_class" style="display: none;">
+                                <li><a href="all-staff.html">All Staff </a></li>
+                                <li><a href="edit-staff.html"> Edit Staff </a></li>
+                                <li><a href="add-staff.html"> Add Staff </a></li>
+                            </ul>
+                        </li>
+
+
+                        <li class="submenu"> <a href="feedbacks.html" routerLink="/e-feedbacks"><i class="material-icons">chat</i><span> Feedbacks </span> <span class="menu-arrow"></span></a>
+                            <ul class="submenu_class" style="display: none;">
+                                <li><a href="employees.html">Employees List </a></li>
+                                <li><a href="leaves.html">Leaves </a></li>
+                                <li><a href="holidays.html">Holidays </a></li>
+                                <li><a href="attendance.html">Attendance </a></li>
+                            </ul>
+                        </li>
+
+
+
+
+
+                    </ul>
+                </div>
+            </div>
+            <div class="slimScrollBar" style="background: rgb(204, 204, 204); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 267.574px;"></div>
+            <div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script src="assets/admin/js/jquery-3.5.1.min.js"></script>
+<script src="assets/admin/js/popper.min.js"></script>
+<script src="assets/admin/js/bootstrap.min.js"></script>
+<script src="assets/admin/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="assets/admin/plugins/raphael/raphael.min.js"></script>
+<script src="assets/admin/plugins/morris/morris.min.js"></script>
+<script src="assets/admin/js/chart.morris.js"></script>
+<script src="assets/admin/js/script.js"></script>

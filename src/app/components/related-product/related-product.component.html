@@ -1,0 +1,40 @@
+<div class="products">
+    <div class="row justify-content-center">
+                                                                                      
+        
+        <div class="col-6 col-md-4 col-lg-3 col-xl-5col" *ngFor="let p of products">
+            <div class="product product-7 text-center">
+                <figure class="product-media">
+                    <a href="product.html">
+                        <span class="product-label label-new" *ngIf="p.solde">{{p.remise}} %</span>
+                        <img src="{{p.img}}" alt="Product image" class="product-image">
+                        <img src="{{p.imgg}}" alt="Product image" class="product-image-hover">
+                    </a>
+                    <div class="product-action-vertical">
+                        <a style="cursor:pointer" (click)="addWishlist(p)" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                        <a style="cursor : pointer" (click)="viewProduct(p._id)" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
+                    </div><!-- End .product-action-vertical -->
+                    <div class="product-action">
+                        <a style="cursor: pointer;" (click)="SaveInPanier(p)" class="btn-product btn-cart"><span>add to cart</span></a>
+                    </div><!-- End .product-action -->
+                </figure><!-- End .product-media -->
+                <div class="product-body">
+                    <h3 class="product-title">
+                        <a href="product.html">{{p.name}}</a>
+                    </h3><!-- End .product-title -->
+                    <!-- <h3 class="product-title"><a href="product.html">{{p.name}}</a></h3> -->
+                    <div class="product-price" *ngIf="p.solde">
+                        <span class="new-price">Now ${{p.new_price}}</span>
+                        <span class="old-price">Was ${{p.price}}</span>
+                    </div>
+                    <div class="product-price" *ngIf="!p.solde" >
+                     <span style="color: #c96; font-size: 16px" >   ${{p.price}} </span>
+                    </div>
+                </div><!-- End .product-body -->
+            </div><!-- End .product -->
+        </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
+                                                                                                                                                                                                                                
+ 
+                                                                                                                                                   
+    </div><!-- End .row -->
+</div><!-- End .products -->

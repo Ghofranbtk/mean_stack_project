@@ -1,0 +1,112 @@
+<app-header></app-header>
+<div class="page-wrapper">
+
+    <div class="login-page bg-image pt-8 pb-8 pt-md-12 pb-md-12 pt-lg-17 pb-lg-17"
+        style="background-image: url('assets/images/add-blog.jpg')">
+        <div class="container">
+            <div class="form-box">
+                <div class="form-tab">
+                    <ul class="nav nav-pills nav-fill" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link" id="signin-tab-2" data-toggle="tab" href="#signin-2" role="tab"
+                                aria-controls="signin-2" aria-selected="false">Add Blog</a>
+                        </li>
+
+                    </ul>
+                    <div class="tab-content">
+
+                        <div class="tab-pane fade show active" id="register-2" role="tabpanel"
+                            aria-labelledby="register-tab-2">
+                            <form [formGroup]="blogForm">
+                                <div>
+                                    <div class="form-group">
+                                        <label for="title">Title * </label>
+                                        <input type="text" class="form-control" [(ngModel)]='blog.title'
+                                            formControlName="title" id="title" name="title" required>
+                                    </div><!-- End .form-group -->
+                                    <div class="form-group">
+                                        <label for="author">Author * </label>
+                                        <input type="text" class="form-control" [(ngModel)]='blog.author'
+                                            formControlName="author" id="author" name="author" required>
+                                    </div><!-- End .form-group -->
+
+
+                                    <div class="form-group">
+                                        <label for="description1">Description 1* </label>
+                                        <textarea [(ngModel)]='blog.description1' formControlName="description1"
+                                            class="form-control" cols="30" rows="4" required></textarea>
+                                    </div><!-- End .form-group -->
+
+                                    
+                                    <div class="col-md-6 offset-md-4">
+                                        <div class="btn-wrap">
+                                            <button class="btn btn-primary btn-rounded" (click)='filePicker.click()'>Select
+                                                photo 1</button>
+                                        </div><!-- End .btn-wrap -->
+                                        <div style="visibility: hidden;">
+                                            <div class="form_title">Photo</div>
+                                            <input type="file" class="form-control" r (change)='onImageSelected($event)'
+                                                #filePicker placeholder="experience" multiple>
+                                        </div>
+                                        <img [src]="imagePreview" *ngIf='imagePreview'
+                                            style="border-radius: 20%;width:100%; height:100%; margin-left: -15%;margin-top: -30%;">
+                                    </div><!-- End .col-md-4 col-lg-2 -->
+                                    
+                                    
+                                    
+                                                                                                                                                                                                                                
+
+
+                                    <div class="form-group">
+                                        <label for="quote">Quote * </label>
+                                        <textarea class="form-control" [(ngModel)]='blog.quote' formControlName="quote" cols="20" rows="4"></textarea>
+                                    </div><!-- End .form-group -->
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="description2">Description 2* </label>
+                                    <textarea class="form-control" [(ngModel)]='blog.description2' formControlName="description2" cols="30" rows="4"></textarea>
+                                </div><!-- End .form-group -->
+
+                                <div class="col-md-6 offset-md-4">
+                                    <div class="btn-wrap">
+                                        <button class="btn btn-primary btn-rounded" (click)='filePickerr.click()'>Select
+                                            photo 2</button>
+                                    </div><!-- End .btn-wrap -->
+                                    <div style="visibility: hidden;">
+                                        <div class="form_title">Photo</div>
+                                        <input type="file" class="form-control" r (change)='onImageSelectedd($event)'
+                                            #filePickerr placeholder="experience" multiple>
+                                    </div>
+                                    <img [src]="imagePrevieww" *ngIf='imagePrevieww'
+                                        style="border-radius: 20%;width:100%; height:100%; margin-left: -15%;margin-top: -30%;">
+                                </div><!-- End .col-md-4 col-lg-2 -->
+                                <div style="color: red;">{{msg}}</div>
+                                <div class="form-footer" style="margin-top:15%;">
+                                    <button (click)="AddBlog()" class="btn btn-outline-primary-2">
+                                        <span>Add Product</span>
+                                        <i class="icon-long-arrow-right"></i>
+                                    </button>
+                                </div>
+
+
+
+                                <!---*******************---------------*********************-------------------************---->
+
+
+                            </form>
+                            <div class="form-choice">
+
+                            </div><!-- .End .tab-pane -->
+                        </div><!-- End .tab-content -->
+                    </div><!-- End .form-tab -->
+                </div><!-- End .form-box -->
+            </div><!-- End .container -->
+        </div><!-- End .login-page section-bg -->
+
+
+
+
+
+    </div><!-- End .page-wrapper -->
+    <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>

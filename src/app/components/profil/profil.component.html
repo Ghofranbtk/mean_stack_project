@@ -1,0 +1,110 @@
+<app-header></app-header>
+
+<!--bideyet profile-->
+        <main class="main">
+        	<div class="container">
+                <div class="page-header page-header-big text-center" style="background-image: url('assets/images/profile.jpg')">
+                    <!--<div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">-->
+                    <h1 style="font-weight: bold"class="page-title text-white">PROFILE</h1>
+                </div><!-- End .page-header -->
+            </div><!-- End .page-header -->
+<!--END PROFILE-->       	
+
+
+
+<!--Bideyet INFOS -->
+            <div class="page-content" >
+            	<div class="checkout">
+	                <div class="container" style="margin-left: 330px;width: 150%;">
+            			
+            			
+		                	<div class="row" > 
+								<div class="col-lg-3" >
+		                			<div class="summary">
+		                				<h3 class="summary-title" style="color:#c96">YOUR PERSONAL INFOS</h3><!-- End .summary-title -->
+										<h6>Name :</h6>  <p>{{user.fname}}  {{user.lname}}</p>
+										<br>
+										<h6>Email Adress :</h6> <p>{{user.email}}</p>
+										<br>
+										<h6>Town/City :</h6> <p>{{user.city}}</p>
+										<br>
+										<h6>State/Country :</h6> <p>{{user.country}}</p>
+										<br>
+										<h6>Postcode :</h6> <p>{{user.postcode}}</p>
+										<br>
+										<h6>Phone Number :</h6> <p>{{user.phone}}</p>
+										<br>
+											<p>	<a routerLink="/edit-user" (click)="EditUser(user._id)">Edit <i class="icon-edit"></i></a></p>
+		                			</div><!-- End .summary -->
+		                		</div><!-- End .col-lg-3 -->	
+
+
+								<button (click)="Logout()"> LOGOUT</button>
+
+
+				
+
+
+								<aside class="col-lg-3">
+		                			<div class="summary">
+		                				<h3 class="summary-title"  style="color:#c96">YOUR ORDERS</h3><!-- End .summary-title -->
+
+
+		                				<table class="table table-summary">
+		                					<thead>
+		                						<tr>
+		                							<th>Product</th>
+		                							<th>Total</th>
+		                						</tr>
+		                					</thead>
+
+		                					<tbody>
+		                						<tr>
+		                							<td><a href="#">Beige knitted elastic runner shoes</a></td>
+		                							<td>$84.00</td>
+		                						</tr>
+
+		                						<tr>
+		                							<td><a href="#">Blue utility pinafore denimdress</a></td>
+		                							<td>$76,00</td>
+		                						</tr>
+		                						<tr class="summary-subtotal">
+		                							<td>Subtotal:</td>
+		                							<td>$160.00</td>
+		                						</tr><!-- End .summary-subtotal -->
+		                						<tr>
+		                							<td>Shipping:</td>
+		                							<td>Free shipping</td>
+		                						</tr>
+		                						<tr class="summary-total">
+		                							<td>Total:</td>
+		                							<td>$160.00</td>
+		                						</tr><!-- End .summary-total -->
+		                					</tbody>
+		                				</table><!-- End .table table-summary -->
+										
+										<!------------------------------------------>
+
+		                				<button type="submit" class="btn btn-outline-primary-2 btn-order btn-block">
+		                					<span class="btn-text">Place Order</span>
+		                					<span class="btn-hover-text">Proceed to Checkout</span>
+		                				</button>
+		                			</div><!-- End .summary -->
+		                		</aside><!-- End .col-lg-3 -->
+		                	
+			
+
+
+
+
+
+
+		                		
+		                	</div><!-- End .row -->
+            		
+	                </div><!-- End .container -->
+                </div><!-- End .checkout -->
+            </div><!-- End .page-content -->
+        </main><!-- End .main -->
+
+		<app-footer></app-footer>

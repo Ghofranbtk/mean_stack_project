@@ -1,0 +1,643 @@
+<!--HEADER HOME-->
+<!-- <link rel="stylesheet" href="/assets/css/style.css"> -->
+<!-- <link rel="stylesheet" href="/assets/css/skins/skin-demo-24.css"> -->
+<!-- <link rel="stylesheet" href="/assets/css/demos/demo-24.css"> -->
+
+
+<link rel="stylesheet" href="/assets/css/demos/demo-11.css">
+<!-- <link rel="stylesheet" href="/assets/css/plugins/nouislider/nouislider.css"> -->
+
+<!-- <link rel="stylesheet" href="/assets/css/demos/demo-5.css"> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--Plugins CSS File-->
+
+<!-- <link rel="stylesheet" href="/assets/css/plugins/owl-carousel/owl.carousel.css"> -->
+<!-- <link rel="stylesheet" href="/assets/css/plugins/magnific-popup/magnific-popup.css"> -->
+<!-- <link rel="stylesheet" href="/assets/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css"> -->
+<!-- <link rel="stylesheet" href="/assets/css/demos/demo-5.css"> -->
+
+
+
+
+
+<div class="page-wrapper">
+    <header class="header header-7">
+        <div class="header-middle sticky-header">
+            <div class="container">
+                <div class="header-left">
+                    <button class="mobile-menu-toggler">
+                        <span class="sr-only">Toggle mobile menu</span>
+                        <i class="icon-bars"></i>
+                    </button>
+
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/logo2.png" alt="Molla Logo" width="100" height="30"> </a>
+                </div>
+                <!-- End .header-left -->
+
+                <div class="header-right">
+
+                    <nav class="main-nav">
+                        <ul class="menu sf-arrows">
+                            <li class="megamenu-container active">
+                                <a href="index.html" class="sf-with-ul">Home</a>
+
+                                <li>
+                                    <a href="product.html" class="sf-with-ul" routerLink="shop">SHOP</a>
+
+                                    <div class="megamenu megamenu-sm">
+                                        <div class="row no-gutters">
+                                            <div class="col-md-6">
+                                                <div class="menu-col">
+                                                    <div class="menu-title">Product Details</div>
+                                                    <!-- End .menu-title -->
+                                                    <ul>
+                                                        <li *ngFor="let i of category"><a href="product.html">{{i.name}}</a></li>
+                                                    </ul>
+                                                </div>
+                                                <!-- End .menu-col -->
+                                            </div>
+                                            <!-- End .col-md-6 -->
+
+                                            <div class="col-md-6">
+                                                <div class="banner banner-overlay">
+                                                    <a href="category.html">
+                                                        <img src="assets/images/shop.jpg" alt="Banner">
+
+                                                        <div class="banner-content banner-content-bottom">
+                                                            <div class="banner-title text-white">New Trends<br><span><strong>spring 2019</strong></span></div>
+                                                            <!-- End .banner-title -->
+                                                        </div>
+                                                        <!-- End .banner-content -->
+                                                    </a>
+                                                </div>
+                                                <!-- End .banner -->
+                                            </div>
+                                            <!-- End .col-md-6 -->
+                                        </div>
+                                        <!-- End .row -->
+                                    </div>
+                                    <!-- End .megamenu megamenu-sm -->
+                                </li>
+
+                                <li>
+                                    <a href="#trends" class="sf-with-ul">TRENDS</a>
+
+                                </li>
+                                <li>
+                                     <!--  app-view-blogs -->
+                                    <a routerLink="view-blogs" class="sf-with-ul">Blog</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="#feedbacks" class="sf-with-ul">FEEDBACKS</a>
+
+                                </li>
+                                <li>
+                                    <a href="contact.html" routerLink="contact" class="sf-with-ul">Contact Us</a>
+
+                                </li>
+
+
+                        </ul>
+                        <!-- End .menu -->
+                    </nav>
+                    <!-- End .main-nav -->
+
+                    <div class="dropdown cart-dropdown">
+                        <div class="header-search">
+                            <a href="#" class="search-toggle" role="button" title="Search"><i class="icon-search"></i></a>
+                            <form autocomplete="off" method="get">
+                                <div class="header-search-wrapper">
+                                    <!-- <label for="q" class="sr-only">Search</label> -->
+                                    <input type="text" class="form-control" name="q" id="q" placeholder="Search in..."
+                                        [(ngModel)]="filterTerm">
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <div *ngFor="let i of product | filter: filterTerm">
+                                            <div class="product">
+                                                <div class="product-cart-details">
+                                                    <h5 class="product-title">
+                                                        <a style="cursor: pointer;"
+                                                            (click)="viewProduct(i._id)">{{i.name}}</a>
+                                                    </h5>
+                                                    <br>
+                                                </div><!-- End .product-cart-details -->
+                                                <figure class="product-image-container">
+                                                    <a style="cursor: pointer;" (click)="viewProduct(i._id)"
+                                                        class="product-image">
+                                                        <img src="{{i.img}}" alt="product">
+                                                    </a>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- End .header-search-wrapper -->
+                            </form>
+                        </div>
+                    </div>
+                   
+                   
+                   
+                   
+                   
+                    <div class="user">
+                        <a class="wishlist-link" style="cursor: pointer;" (click)="User()">
+                             <i class="icon-user"></i>
+                             
+                         </a>
+                    </div>
+                   
+                    <!-- End .header-search -->
+
+
+                    <div class="wishlist">
+                        <a href="whislist" class="wishlist-link">
+                             <i class="icon-heart-o"></i>
+                             <span class="wishlist-count">{{whish_number}}</span>
+                         </a>
+                    </div>
+
+                    <div class="dropdown cart-dropdown">
+                       
+                        <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false" data-display="static">
+                        <i class="icon-shopping-cart"></i>
+                        <span class="cart-count">{{number}}</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div class="dropdown-cart-products" *ngFor="let i of panier">
+                                <div class="product">
+                                    <div class="product-cart-details">
+                                        <h4 class="product-title">
+                                            <a href="product.html">{{i.name}}</a>
+                                        </h4>
+                                        <span class="cart-product-info">
+                                            <span class="cart-product-qty"></span>
+                                            ${{i.total}}
+                                        </span>
+                                    </div><!-- End .product-cart-details -->
+    
+                                    <figure class="product-image-container">
+                                        <a href="product.html" class="product-image">
+                                            <img src="{{i.img}}" alt="product">
+                                        </a>
+                                    </figure>
+                                    <a (click)="DeleteProduct(i)" style="cursor: pointer;" class="btn-remove" title="Remove Product">
+                                        <i class="icon-close"></i></a>
+                                </div><!-- End .product -->
+                            </div><!-- End .cart-product -->  
+                            <div class="dropdown-cart-total">
+                                <span>Total</span>
+    
+                                <span class="cart-total-price">${{price}}</span>
+                            </div><!-- End .dropdown-cart-total -->
+    
+                            <div class="dropdown-cart-action">
+                                <a style="cursor: pointer;" (click)="viewCart()" class="btn btn-primary">View Cart</a>
+                                <!-- <a href="checkout.html" class="btn btn-outline-primary-2"><span>Checkout</span><i -->
+                                        <!-- class="icon-long-arrow-right"></i></a> -->
+                            </div><!-- End .dropdown-cart-total -->
+                        </div>
+                        
+
+                        <!-- End .dropdown-menu -->
+                    </div>
+                    <!-- End .cart-dropdown -->
+
+                </div>
+                <!-- End .header-right -->
+            </div>
+            <!-- End .container -->
+        </div>
+        <!-- End .header-middle -->
+    </header>
+    <!-- End .header -->
+
+    <main class="main">
+        <div class="intro-slider-container mb-4"  style="width: 100%;">
+            <div class="intro-slider owl-carousel owl-simple owl-nav-inside" data-toggle="owl" data-owl-options='{
+                    "nav": false, 
+                    "dots": true,
+                    "responsive": {
+                        "992": {
+                            "nav": true,
+                            "dots": false
+                        }
+                    }
+                }'>
+                <div class="intro-slide" style="background-image: url(/assets/images/ppp.jpg) ;">
+                    <div class="container intro-content">
+                        <h3 class="intro-subtitle text-primary">ROBOSHOP</h3>
+                        <!-- End .h3 intro-subtitle -->
+                        <h1 class="intro-title" style="color: #eee;">Get All <br>The Good Stuff</h1>
+                        <!-- End .intro-title -->
+
+                        <a href="category.html" class="btn btn-outline-primary-2">
+                            <span>DISCOVER MORE</span>
+                            <i class="icon-long-arrow-right"></i>
+                        </a>
+                    </div>
+                    <!-- End .intro-content -->
+                </div>
+                <!-- End .intro-slide -->
+
+                <div class="intro-slide" style="background-image: url(assets/images/tae.jpg); ">
+                    <div class="container intro-content">
+                        <h3 class="intro-subtitle text-primary">all at 50% off</h3>
+                        <!-- End .h3 intro-subtitle -->
+                        <h1 class="intro-title text-white">The Most Beautiful <br>Novelties In Our Shop</h1>
+                        <!-- End .intro-title -->
+
+                        <a href="category.html" class="btn btn-outline-primary-2 min-width-sm">
+                            <span>SHOP NOW</span>
+                            <i class="icon-long-arrow-right"></i>
+                        </a>
+                    </div>
+                    <!-- End .intro-content -->
+                </div>
+                <!-- End .intro-slide -->
+            </div>
+            <!-- End .intro-slider owl-carousel owl-simple -->
+
+            <span class="slider-loader"></span>
+            <!-- End .slider-loader -->
+        </div>
+        <!-- End .intro-slider-container -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ------------------------------ options---------------------------------------------- -->
+
+
+        <div class="icon-boxes-container bg-transparent" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="icon-box icon-box-side">
+                            <span class="icon-box-icon" style="color: #c96;">
+                            <i class="icon-rocket"></i>
+                        </span>
+                            <div class="icon-box-content">
+                                <h3 class="icon-box-title" style="color: #333;">Free Shipping</h3>
+                                <!-- End .icon-box-title -->
+                                <p>Orders $50 or more</p>
+                            </div>
+                            <!-- End .icon-box-content -->
+                        </div>
+                        <!-- End .icon-box -->
+                    </div>
+                    <!-- End .col-sm-6 col-lg-3 -->
+
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="icon-box icon-box-side">
+                            <span class="icon-box-icon" style="color: #c96;">
+                            <i class="icon-rotate-left"></i>
+                        </span>
+
+                            <div class="icon-box-content">
+                                <h3 class="icon-box-title" style="color: #333;">Free Returns</h3>
+                                <!-- End .icon-box-title -->
+                                <p>Within 30 days</p>
+                            </div>
+                            <!-- End .icon-box-content -->
+                        </div>
+                        <!-- End .icon-box -->
+                    </div>
+                    <!-- End .col-sm-6 col-lg-3 -->
+
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="icon-box icon-box-side">
+                            <span class="icon-box-icon">
+                            <i class="icon-info-circle" style="color: #c96;"></i>
+                        </span>
+
+                            <div class="icon-box-content">
+                                <h3 class="icon-box-title" style="color: #333;">Get 20% Off 1 Item</h3>
+                                <!-- End .icon-box-title -->
+                                <p>When you sign up</p>
+                            </div>
+                            <!-- End .icon-box-content -->
+                        </div>
+                        <!-- End .icon-box -->
+                    </div>
+                    <!-- End .col-sm-6 col-lg-3 -->
+
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="icon-box icon-box-side">
+                            <span class="icon-box-icon">
+                            <i class="icon-life-ring" style="color: #c96;"></i>
+                        </span>
+
+                            <div class="icon-box-content">
+                                <h3 class="icon-box-title" style="color: #333;">We Support</h3>
+                                <!-- End .icon-box-title -->
+                                <p>24/7 amazing services</p>
+                            </div>
+                            <!-- End .icon-box-content -->
+                        </div>
+                        <!-- End .icon-box -->
+                    </div>
+                    <!-- End .col-sm-6 col-lg-3 -->
+                </div>
+                <!-- End .row -->
+            </div>
+            <!-- End .container -->
+        </div>
+        <!-- End .icon-boxes-container -->
+
+
+
+<!-- ------------ end options ---------------------------------- -->
+
+        <!--ABOUT US-->
+        <div class="bg-light-2 pt-6 pb-5 mb-6 mb-lg-8">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 mb-3 mb-lg-0" style="text-align: center">
+                        <h2 class="title">WHO ARE WE ?</h2>
+                        <!-- End .title -->
+                        <p class="lead text-primary mb-3">Roboshop,the Robot Store For Personal and Professional Robot Technology!</p>
+                        <!-- End .lead text-primary -->
+                        <p class="mb-2">At RobotShop, our mission is to put robotics at your service!You will find the best selection of Robot Vacuums and other Domestic Robots, Professional Robots, Robot Toys, Robot Kits, and Robot Parts for building your own robots.
+                            RobotShop is also a leading force in Robotics Education & Research. We provide a diverse product selection, educational and quantity discounts, useful resources and specialized support.</p>
+
+                        <a href="blog.html" class="btn btn-sm btn-minwidth btn-outline-primary-2">
+                            <span>VIEW OUR NEWS</span>
+                            <i class="icon-long-arrow-right"></i>
+                        </a>
+                    </div>
+                    <!-- End .col-lg-5 -->
+
+                    <div class="col-lg-6 offset-lg-1">
+                        <div class="about-images">
+                            <img src="assets/images/aboutus2.jpg" alt="" class="about-img-front">
+                            <img src="assets/images/aboutus1.jpg" alt="" class="about-img-back">
+                        </div>
+                        <!-- End .about-images -->
+                    </div>
+                    <!-- End .col-lg-6 -->
+                </div>
+                <!-- End .row -->
+            </div>
+            <!-- End .container -->
+        </div>
+        <!-- End .bg-light-2 pt-6 pb-6 -->
+
+        <!-- end about us -->
+
+
+
+
+
+        <!--END ABOUT US -->
+
+
+
+        <!-- shop fel home-->
+        <app-home-shop></app-home-shop>
+
+        <!--------------------------------- end shop Home ----------------- -->
+        <!------------------------------------ FeedBacks------------------------------------------------------>
+        <section class="testimonial text-center" style="height: 50%;">
+            <div class="container">
+          
+              <div class="heading white-heading" style="font-size: 20px;margin-top: -35px;">
+                Testimonial
+              </div>
+              <div  id="testimonial4" class="carousel slide testimonial4_indicators testimonial4_control_button thumb_scroll_x swipe_x" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2000">
+          
+                <div class="carousel-inner" role="listbox" style="margin-top : -35px">
+                  <div class="carousel-item active" >
+                    
+                    <div class="testimonial4_slide" >
+                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                      <h4>client</h4>
+                    </div>
+                
+                  </div>
+                  <div class="carousel-item" *ngFor="let i of feedback">
+                    <div class="testimonial4_slide">
+                      <p>{{i.message}} </p>
+                      <h4>{{i.name}}</h4>
+                    </div>
+                  </div> 
+                  
+                </div>
+                <a class="carousel-control-prev" style="margin-top: -70px;" href="#testimonial4" data-slide="prev">
+                  <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next"  style="margin-top: -70px;" href="#testimonial4" data-slide="next">
+                  <span class="carousel-control-next-icon"></span>
+                </a>
+              </div>
+            </div>
+          </section>
+            <br>
+            <br>
+        <!------------------------------------End FeedBacks------------------------------------------------------>
+        <!--faza jdida-->
+        <div class="page-wrapper">
+
+            <div class="container">
+                <div class="banner-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="banner banner-border">
+                                <a href="#">
+                                    <img src="assets/images/111.jpg" alt="Banner" style="height: 760px">
+                                </a>
+
+                                <div class="banner-content">
+                                    <h4 class="banner-subtitle"><a href="#">Trending now</a></h4>
+                                    <!-- End .banner-subtitle -->
+                                    <h3 class="banner-title"><a href="#"><span>This Week's<br>Most Wanted</span></a></h3>
+                                    <!-- End .banner-title -->
+                                    <a href="#" class="btn btn-outline-primary-2 banner-link">Discover Now<i class="icon-long-arrow-right"></i></a>
+                                </div>
+                                <!-- End .banner-content -->
+                            </div>
+                            <!-- End .banner -->
+                        </div>
+                        <!-- End .col-md-6-->
+
+                        <div class="col-md-6">
+                            <div class="banner banner-border-hover">
+                                <a href="#">
+                                    <img src="assets/images/222.jpg" alt="Banner">
+                                </a>
+
+                                <div class="banner-content">
+                                    <h4 class="banner-subtitle"><a href="#">Limited time only.</a></h4>
+                                    <!-- End .banner-subtitle -->
+                                    <h3 class="banner-title"><a href="#"><span>Trainers & Sportwear<br>Sale Up to 70% off</span></a></h3>
+                                    <!-- End .banner-title -->
+                                    <a href="#" class="btn btn-outline-primary-2 banner-link">Shop Now<i class="icon-long-arrow-right"></i></a>
+                                </div>
+                                <!-- End .banner-content -->
+                            </div>
+                            <!-- End .banner -->
+
+                            <div class="banner banner-border-hover">
+                                <a href="#">
+                                    <img src="assets/images/33.jpg" alt="Banner">
+                                </a>
+
+                                <div class="banner-content">
+                                    <h4 class="banner-subtitle"><a href="#">This week we love...</a></h4>
+                                    <!-- End .banner-subtitle -->
+                                    <h3 class="banner-title"><a href="#"><span>Womens <br>Holiday Clothes</span></a></h3>
+                                    <!-- End .banner-title -->
+                                    <a href="#" class="btn btn-outline-primary-2 banner-link">Discover Now<i class="icon-long-arrow-right"></i></a>
+                                </div>
+                                <!-- End .banner-content -->
+                            </div>
+                            <!-- End .banner -->
+                        </div>
+                        <!-- End .col-md-6 -->
+                    </div>
+                    <!-- End .row -->
+                </div>
+                <!-- End .banner-group -->
+            </div>
+
+        </div>
+
+        <!-- End .container -->
+        <div class="mb-4"></div>
+        <!-- End .mb-6 -->
+
+        <main class="main">
+            <!------------------------------------ Best Sellers -------------------------------------------->
+
+            <div >
+                <div class="heading heading-center mb-3">
+                    <h2 class="title-lg" id="trends">Trendy Products</h2>
+                    <!-- End .title -->
+
+                </div>
+                <!-- End .heading -->                                                                                                                                                                                                                                                                       
+
+                <app-related-product></app-related-product>
+            </div>
+            <!-- End .container -->
+
+            <!-- ------------------ end Best Sellers --------------------------------- -->
+            <!--blog-->
+            <br>
+            <br>
+            <div class="blog-posts">
+                <div class="container">
+                    <div class="heading text-center">
+                        <h2 class="title" id="blog">New Blog Posts</h2>
+                        <!-- End .title -->
+                        <p class="title-desc">Donec nec justo eget felis facilisis fermentum.</p>
+                        <!-- End .title-desc -->
+                    </div>
+                    <!-- End .heading -->
+
+                    <app-home-blog></app-home-blog>
+                <!-- End .container -->
+            </div>
+            <!-- End .blog-posts -->
+
+
+
+
+
+
+
+            <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
+
+
+            <app-footer></app-footer>
+
+            <div class="mobile-menu-overlay">
+            </div>
+            <!-- End .mobil-menu-overlay -->
+
+            <!-- End .page-wrapper -->
+
+            <!-- Mobile Menu -->
+            <div class="mobile-menu-overlay"></div>
+            <!-- End .mobil-menu-overlay -->
+
+            <div class="mobile-menu-container">
+                <div class="mobile-menu-wrapper">
+                    <span class="mobile-menu-close"><i class="icon-close"></i></span>
+
+                    <form action="#" method="get" class="mobile-search">
+                        <label for="mobile-search" class="sr-only">Search</label>
+                        <input type="search" class="form-control" name="mobile-search" id="mobile-search" placeholder="Search in..." required>
+                        <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
+                    </form>
+
+                    <nav class="mobile-nav">
+                        <ul class="mobile-menu">
+                            <li class="active">
+                                <a href="index.html">Home</a>
+                            </li>
+
+                            <li>
+                                <a href="product.html" class="sf-with-ul">Shop</a>
+                                <ul>
+                                    <li><a href="product.html">Sensors</a></li>
+                                    <li><a href="product-centered.html">Cards</a></li>
+                                    <li><a href="product-gallery.html">Microcontrollers</a></li>
+                                    <li><a href="product-sticky.html">Motors</a></li>
+                                    <li><a href="product-sidebar.html">Tools & Equipment</a></li>
+                                    <li><a href="product-fullwidth.html">ROBOTS & KITS </a></li>
+                                    <li><a href="product-extended.html"><span>Extended Info<span class="tip tip-new">New</span></span></a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">TRENDS </a>
+
+                            </li>
+                            <li>
+                                <a href="blog.html">Blog</a>
+
+
+                            </li>
+                            <li>
+                                <a href="#feedbacks">FEEDBACKS</a>
+
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- End .mobile-nav -->
+
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" target="_blank" title="Facebook"><i class="icon-facebook-f"></i></a>
+                        <a href="#" class="social-icon" target="_blank" title="Twitter"><i class="icon-twitter"></i></a>
+                        <a href="#" class="social-icon" target="_blank" title="Instagram"><i class="icon-instagram"></i></a>
+                        <a href="#" class="social-icon" target="_blank" title="Youtube"><i class="icon-youtube"></i></a>
+                    </div>
+                    <!-- End .social-icons -->
+                </div>
+                <!-- End .mobile-menu-wrapper -->
+            </div>
+            <!-- End .mobile-menu-container -->

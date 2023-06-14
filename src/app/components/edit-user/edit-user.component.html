@@ -1,0 +1,84 @@
+<app-header></app-header>
+<div class="page-wrapper">
+
+    <div class="login-page bg-image pt-8 pb-8 pt-md-12 pb-md-12 pt-lg-17 pb-lg-17"
+        style="background-image: url('assets/images/edit-user.jpg')">
+
+
+
+        <div class="container">
+            <div class="form-box">
+                <div class="form-tab">
+                    <ul class="nav nav-pills nav-fill" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link" id="signin-tab-2" data-toggle="tab" href="#signin-2" role="tab"
+                                aria-controls="signin-2" aria-selected="false">EDIT YOUR INFOS</a>
+                        </li>
+                    </ul>
+                <br>
+
+
+
+                    <form #userForm="ngForm" (ngSubmit)="EditUser()" class="contact-form mb-3">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label>First Name </label>
+                                <input type="text" [(ngModel)]='user.fname' [ngModelOptions]="{standalone:true}" class="form-control" required>
+                            </div><!-- End .col-sm-6 -->
+
+                            <div class="col-sm-6">
+                                <label>Last Name </label>
+                                <input type="text" [(ngModel)]='user.lname' [ngModelOptions]="{standalone:true}" class="form-control" required>
+                            </div><!-- End .col-sm-6 -->
+                        </div><!-- End .row -->
+
+                        <label>Email address </label>
+                        <input type="email" [(ngModel)]='user.email' [ngModelOptions]="{standalone:true}" class="form-control" required>
+
+                        <label>Current password </label>
+		            						<input type="password"  [(ngModel)]='user.pwd'  [ngModelOptions]="{standalone:true}" placeholder="Your current password" class="form-control">
+
+		            						<label>New password (leave blank to leave unchanged)</label>
+		            						<input type="password" [(ngModel)]='user.new_pwd'  [ngModelOptions]="{standalone:true}"  class="form-control">
+
+		            						<label>Confirm new password (leave blank to leave unchanged)</label>
+		            						<input type="password" [(ngModel)]='user.confirm_pwd'  [ngModelOptions]="{standalone:true}" class="form-control mb-2">
+                
+
+
+
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label>Town / City </label>
+                                <input type="text" [(ngModel)]='user.city' [ngModelOptions]="{standalone:true}" class="form-control" required>
+                            </div><!-- End .col-sm-6 -->
+
+                            <div class="col-sm-6">
+                                <label>State / County </label>
+                                <input type="text" [(ngModel)]='user.country' [ngModelOptions]="{standalone:true}" class="form-control" required>
+                            </div><!-- End .col-sm-6 -->
+                        </div><!-- End .row -->
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label>Postcode / ZIP </label>
+                                <input type="text" [(ngModel)]='user.postcode' [ngModelOptions]="{standalone:true}" class="form-control" required>
+                            </div><!-- End .col-sm-6 -->
+
+                            <div class="col-sm-6">
+                                <label>Phone Number  </label>
+                                <input type="tel" [(ngModel)]='user.phone' [ngModelOptions]="{standalone:true}" class="form-control" required>
+                            </div><!-- End .col-sm-6 -->
+                        </div><!-- End .row -->
+                        <div style="color: red;">{{msg}}</div>
+                        <div style="color: red;">{{message}}</div>
+                     
+                        <br>
+
+                        <button type="submit" class="btn btn-outline-primary-2 btn-minwidth-sm" style="margin-left:150px">
+                            <span>SAVE CHANGES</span>
+                            <i class="icon-long-arrow-right"></i>
+                        </button>
+                    </form><!-- End .contact-form -->
+ <app-footer></app-footer>
